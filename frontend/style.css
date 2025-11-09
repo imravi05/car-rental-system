@@ -1,43 +1,273 @@
-/* --- Car List Styles (NEW) --- */
-.list-card .car-item {
+/* --- Global Styles & Fonts --- */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    color: #333333; /* Dark grey text */
+    background-color: #f4f7f6; /* Light grey background */
+    padding: 2rem;
+    overflow-y: scroll;
+}
+
+/* --- Main Dashboard Layout --- */
+.dashboard-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    gap: 1.5rem;
+}
+
+.dashboard-header {
+    text-align: left;
+    margin-bottom: 1rem;
+}
+
+.dashboard-header h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #111111;
+}
+
+.dashboard-header .subtitle {
+    font-size: 1.1rem;
+    color: #555555;
+    font-weight: 400;
+}
+
+/* --- New Light Card Style --- */
+.card, .stat-card, .list-card {
+    background: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+.card:hover, .stat-card:hover, .list-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+}
+
+/* --- Grid for Stat Cards --- */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.stat-card h3 {
+    font-size: 1rem;
+    color: #666666;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.5rem;
+}
+
+.stat-card .stat-number {
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: #007bff; /* Accent color */
+}
+
+/* --- Grid for Main Content --- */
+.content-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 1.5rem;
+}
+
+.card h3, .list-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: 1.5rem;
+    color: #111;
+}
+
+/* --- List Card Styles --- */
+.list-card ul {
+    list-style: none;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.list-card li {
     display: flex;
+    flex-direction: column;
+    padding: 0.75rem 0.25rem;
+    border-bottom: 1px solid #eeeeee;
+}
+
+.list-card li:last-child {
+    border-bottom: none;
+}
+
+.loading {
+    font-style: italic;
+    color: #888888;
+}
+
+/* Customer List */
+.list-card .customer-name {
+    font-weight: 500;
+}
+.list-card .customer-email {
+    font-size: 0.85rem;
+    color: #666666;
+}
+
+/* Car List */
+.list-card .car-item {
+    flex-direction: row;
     justify-content: space-between;
     align-items: center;
 }
-
 .list-card .car-info {
     display: flex;
     flex-direction: column;
 }
-
 .list-card .car-name {
     font-weight: 500;
 }
-
 .list-card .car-license {
     font-size: 0.85rem;
-    color: #cccccc;
+    color: #666666;
 }
-
 .list-card .car-status {
     font-size: 0.875rem;
     font-weight: 500;
     padding: 0.25rem 0.75rem;
     border-radius: 12px;
+    border: 1px solid;
 }
 
-/* Status-specific colors */
+/* Status-specific colors (Light Theme) */
 .car-status.available {
-    color: #34d399; /* Green */
-    background-color: rgba(52, 211, 153, 0.1);
+    color: #155724; /* Green */
+    background-color: #d4edda;
+    border-color: #c3e6cb;
 }
-
 .car-status.rented {
-    color: #f87171; /* Red */
-    background-color: rgba(248, 113, 113, 0.1);
+    color: #721c24; /* Red */
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+}
+.car-status.maintenance {
+    color: #856404; /* Yellow */
+    background-color: #fff3cd;
+    border-color: #ffeeba;
 }
 
-.car-status.maintenance {
-    color: #fbbf24; /* Yellow */
-    background-color: rgba(251, 191, 36, 0.1);
+/* Rental List */
+.rental-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.rental-info {
+    display: flex;
+    flex-direction: column;
+}
+.rental-customer-car {
+    font-weight: 500;
+}
+.rental-dates {
+    font-size: 0.85rem;
+    color: #666;
+}
+.button-complete {
+    background: #28a745;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+.button-complete:hover {
+    background: #218838;
+}
+
+
+/* --- Form Styles (Light Theme) --- */
+.form-row {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.form-group {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-size: 0.875rem;
+    color: #555555;
+    margin-bottom: 0.5rem;
+}
+
+.form-group input,
+.form-group select {
+    background: #ffffff;
+    border: 1px solid #cccccc;
+    border-radius: 8px;
+    padding: 0.75rem;
+    color: #333333;
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    transition: all 0.2s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0,123,255,0.2);
+}
+
+.button-primary {
+    background: #007bff;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin-top: 1rem;
+}
+
+.button-primary:hover {
+    background: #0056b3;
+}
+
+
+/* --- Responsive Design --- */
+@media (max-width: 900px) {
+    .content-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    body {
+        padding: 1rem;
+    }
+    
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .form-row {
+        flex-direction: column;
+    }
 }
