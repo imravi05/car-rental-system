@@ -1,0 +1,43 @@
+/* --- Car List Styles (NEW) --- */
+.list-card .car-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.list-card .car-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.list-card .car-name {
+    font-weight: 500;
+}
+
+.list-card .car-license {
+    font-size: 0.85rem;
+    color: #cccccc;
+}
+
+.list-card .car-status {
+    font-size: 0.875rem;
+    font-weight: 500;
+    padding: 0.25rem 0.75rem;
+    border-radius: 12px;
+}
+
+/* Status-specific colors */
+.car-status.available {
+    color: #34d399; /* Green */
+    background-color: rgba(52, 211, 153, 0.1);
+}
+
+.car-status.rented {
+    color: #f87171; /* Red */
+    background-color: rgba(248, 113, 113, 0.1);
+}
+
+.car-status.maintenance {
+    color: #fbbf24; /* Yellow */
+    background-color: rgba(251, 191, 36, 0.1);
+}

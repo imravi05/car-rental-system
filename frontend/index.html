@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Rental Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <div class="background-image"></div>
+
+    <main class="dashboard-container">
+        <header class="dashboard-header">
+            <h1>Dashboard</h1>
+            <p class="subtitle">Welcome to your Car Rental management system.</p>
+        </header>
+
+        <section class="stats-grid">
+            <div class="stat-card">
+                <h3>Total Customers</h3>
+                <p class="stat-number" id="stat-total-customers">0</p>
+            </div>
+            <div class="stat-card">
+                <h3>Available Cars</h3>
+                <p class="stat-number" id="stat-available-cars">0</p>
+            </div>
+            <div class="stat-card">
+                <h3>Active Rentals</h3>
+                <p class="stat-number" id="stat-active-rentals">0</p>
+            </div>
+        </section>
+
+        <section class="content-grid">
+            
+            <div class="card" id="add-customer-card">
+                <h3>Add New Customer</h3>
+                <form id="add-customer-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="fullName">Full Name</label>
+                            <input type="text" id="fullName" name="fullName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone">
+                        </div>
+                        <div class="form-group">
+                            <label for="driversLicenseId">Driver's License</label>
+                            <input type="text" id="driversLicenseId" name="driversLicenseId" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="dateOfBirth">Date of Birth</label>
+                            <input type="date" id="dateOfBirth" name="dateOfBirth">
+                        </div>
+                    </div>
+                    <button type="submit" class="button-primary">Save Customer</button>
+                </form>
+            </div>
+
+            <div class="list-card" id="recent-customers-card">
+                <h3>Recent Customers</h3>
+                <ul id="customer-list">
+                    <li class="loading">Loading customers...</li>
+                </ul>
+            </div>
+
+        </section>
+
+        <section class="content-grid">
+
+            <div class="card" id="add-car-card">
+                <h3>Add New Car</h3>
+                <form id="add-car-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="make">Make (e.g., Toyota)</label>
+                            <input type="text" id="make" name="make" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="model">Model (e.g., Camry)</label>
+                            <input type="text" id="model" name="model" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="year">Year</label>
+                            <input type="number" id="year" name="year" min="1990" max="2099" step="1">
+                        </div>
+                        <div class="form-group">
+                            <label for="licensePlate">License Plate</label>
+                            <input type="text" id="licensePlate" name="licensePlate" required>
+                        </div>
+                    </div>
+                    <button type="submit" class="button-primary">Save Car</button>
+                </form>
+            </div>
+
+            <div class="list-card" id="car-inventory-card">
+                <h3>Car Inventory</h3>
+                <ul id="car-list">
+                    <li class="loading">Loading cars...</li>
+                </ul>
+            </div>
+
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
