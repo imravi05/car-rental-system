@@ -1,20 +1,21 @@
 const express = require('express');
 const router = express.Router();
-const customerController = require('../../controllers/customerController');
+// FIX: The path to the controller is now one level up
+const customerController = require('../controllers/customerController');
 
-// GET /api/customers (Get all)
+// GET / (which becomes /api/customers/)
 router.get('/', customerController.getAllCustomers);
 
-// POST /api/customers (Create)
+// POST / (which becomes /api/customers/)
 router.post('/', customerController.addCustomer);
 
-// GET /api/customers/:id (Get one)
+// GET /:id (which becomes /api/customers/:id)
 router.get('/:id', customerController.getCustomerById);
 
-// PUT /api/customers/:id (Update)
+// PUT /:id (which becomes /api/customers/:id)
 router.put('/:id', customerController.updateCustomer);
 
-// DELETE /api/customers/:id (Delete)
+// DELETE /:id (which becomes /api/customers/:id)
 router.delete('/:id', customerController.removeCustomer);
 
 module.exports = router;
